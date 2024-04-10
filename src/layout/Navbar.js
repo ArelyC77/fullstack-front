@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
+import {Link} from "react-router-dom";
 
 export default function Navbar() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary
-      ">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">Full Stack Application</a>
           <button 
@@ -17,8 +17,8 @@ export default function Navbar() {
           aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
-
-          <button className="btn btn-outline-light">Add User</button>
+          {/* path links to Route on App.js */}
+          <Link className="btn btn-outline-light" to="/adduser">Add User</Link>
 
         </div>
       </nav>

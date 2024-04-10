@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './home.css';
 
 export default function Home() {
     //tells react that your component has to do smth after
@@ -21,8 +22,9 @@ export default function Home() {
         <div className='container'>
             {/* py-4 is for padding */}
             <div className='py-4'>
-                <table className="table table-bordered shadow">
+                <table className="table table-hover table-bordered table-striped shadow">
                     <thead>
+                    
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
