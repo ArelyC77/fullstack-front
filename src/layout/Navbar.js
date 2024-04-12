@@ -17,7 +17,7 @@ export default function Navbar() {
           aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
-          {/* path links to Route on App.js */}
+          {/* path links to Route on App.js - this is a linked button */}
           <Link className="btn btn-outline-light" to="/adduser">Add User</Link>
 
         </div>
