@@ -2,29 +2,30 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './home.css';
 
-export default function Home() {
-    //tells react that your component has to do smth after
-    //the render
-    const [users, setUsers]=useState([])
-    //this lures the user's information everytime the page loads
-    useEffect(()=> {
-        loadUsers();
-    },[]);
-    //axios handles information from JSON in backend
-    const loadUsers=async ()=> {
-        const result=await axios.get("http://localhost:8080/users")
-        setUsers(result.data) //this prints to the table
-        //console.log(result.data) this prints to the console
-    };
+// Import Bootstrap Icons CSS directly
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
+export default function Home() {
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        loadUsers();
+    }, []);
+
+    const loadUsers = async () => {
+        try {
+            const result = await axios.get("http://localhost:8080/users");
+            setUsers(result.data);
+        } catch (error) {
+            console.error("Error loading users:", error);
+        }
+    };
 
     return (
         <div className='container'>
-            {/* py-4 is for padding */}
             <div className='py-4'>
                 <table className="table table-hover table-bordered table-striped shadow">
                     <thead>
-                    
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
@@ -34,30 +35,30 @@ export default function Home() {
                         </tr>
                     </thead>
                     <tbody>
-                        {/* This is for dynamic data in table */}
-                        {
-                            users.map((user,index)=>(
-                                <tr>
-                                {/* increases the index by 1 */}
-                                <th scope="row" key={index}>
-                                    {index + 1}
-                                </th>
+                        {users.map((user, index) => (
+                            <tr key={index}>
+                                <th scope="row">{index + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.username}</td>
                                 <td>{user.email}</td>
                                 <td>
-                                    <button className='btn btn-primary mx-2'>View</button>
-                                    <button className='btn btn-outline-primary mx-2'>Edit</button>
-                                    <button className='btn btn-danger mx-2'>Delete</button>
+                                    <button className='btn btn-primary mx-2'>
+                                        <i class="bi bi-eye"></i> View
+                                    </button>
+
+                                    <button className='btn btn-outline-primary mx-2'>
+                                        <i className="bi bi-pencil"></i> Edit
+                                    </button>
+
+                                    <button className='btn btn-danger mx-2'>
+                                        <i class="bi bi-trash"></i> Delete
+                                    </button>
                                 </td>
-                                </tr>
-                            ))
-                        }
-                        
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
-
             </div>
         </div>
-    )
+    );
 }
