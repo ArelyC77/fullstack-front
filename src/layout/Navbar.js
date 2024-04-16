@@ -1,12 +1,14 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-
+import logo from '../logo/2.png';
 export default function Navbar() {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">Full Stack Application</a>
+          <a className="navbar-brand" href="#">
+          <img src={logo} alt="Logo" height="60" />
+            School Purchase Log</a>
           <button 
           className="navbar-toggler" 
           type="button" 
