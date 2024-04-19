@@ -6,9 +6,9 @@ export default function Navbar() {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-          <img src={logo} alt="Logo" height="58"/>
-             School Purchase Log</a>
+          <Link className="navbar-brand" to="/">
+          <img src={logo} alt="Logo" height="58" />
+             School Purchase Log</Link>
           {/* <button *3LINES*
           className="navbar-toggler" 
           type="button" 

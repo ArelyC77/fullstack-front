@@ -74,9 +74,10 @@ export default function Home() {
                                 <td>{user.email}</td>
                                 <td>
                                     {/* View */}
-                                    <button className='btn btn-primary mx-2'>
-                                        <i class="bi bi-eye"></i>
-                                    </button>
+                                    <Link className='btn btn-primary mx-2'
+                                        to={`/viewuser/${user.id}`}>   
+                                        <i className="bi bi-eye"></i>
+                                    </Link>
 
                                     {/* Links take users to a new section while buttons trigger an action */}
                                     {/* Edit */}
