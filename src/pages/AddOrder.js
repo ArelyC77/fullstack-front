@@ -2,75 +2,76 @@ import React, { useState } from 'react'
 import {Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-export default function AddUser() {
+export default function AddOrder() {
 
   //react router dom useNavigate
   let navigate = useNavigate()
 
-  const [user, setUser]=useState({
-    name:"",
-    username:"",
-    email:""
+  const [order, setOrder]=useState({
+    department:"",
+    dateRequestReceived:"",
+    shoppingCartNo:""
   })
 
   //deconstruct useState
-  const{name,username,email}=user
+  const{department,dateRequestReceived,shoppingCartNo}=order
 
   //event change (refer to input variables)
   const onInputChange=(e)=>{
     //the split operator"..." will keep on adding the new object
-    setUser({...user,[e.target.name]: e.target.value})
+    setOrder({...order,[e.target.name]: e.target.value})
   };
 
   const onSubmit= async (e)=>{
     e.preventDefault();
     //axios will post the information using backend post
-    await axios.post("http://localhost:8080/user",user)
+    await axios.post("http://localhost:8080/orders",order)
     //this will navigate to the homepage when submitted
     navigate("/")
   };
+  
 
   return (
   <div className='container'>
     <div className='row'>
       <div className='col-md-6 offset-md-3 border rounded p-4 mt-2 shadow'>
-        <h2 className='text-center m-4'>Register User</h2>
+        <h2 className='text-center m-4'>Register Order</h2>
         <form onSubmit={(e)=>onSubmit(e)}>
-          {/* NAME margin bottom 3 */}
+          {/* DEPARTMENT margin bottom 3 */}
           <div className='mb-3'>
-            <label htmlFor='Name' className='form-label'>Name</label>
+            <label htmlFor='Department' className='form-label'>Department</label>
             <input
             type={"text"}
             className='form-control'
-            placeholder='Enter your name'
-            name="name"
-            value={name}
+            placeholder='Enter your department...'
+            name="department"
+            value={department}
             onChange={(e)=>onInputChange(e)} //called the onInputChange event with arrow function
             />
           </div> 
 
-          {/* USERNAME margin bottom 3 */}
+          {/* DATEREQUESTRECEIVED margin bottom 3 */}
           <div className='mb-3'>
-            <label htmlFor='Username' className='form-label'>Username</label>
+            <label htmlFor='DateRequestReceived' className='form-label'>Date Request Received</label>
             <input
             type={"text"}
             className='form-control'
-            placeholder='Enter your username'
-            name="username"
-            value={username}
+            placeholder='Enter the date request was received'
+            name="dateRequestReceived"
+            value={dateRequestReceived}
             onChange={(e)=>onInputChange(e)}
             />
           </div>
 
-          {/* EMAIL margin bottom 3 */}
+          {/* shoppingCartNo margin bottom 3 */}
           <div className='mb-3'>
-            <label htmlFor='Email' className='form-label'>Email</label>
+            <label htmlFor='shoppingCartNo' className='form-label'>Shopping Cart #</label>
             <input
             type={"text"}
             className='form-control'
-            placeholder='Enter your email'
-            name="email"
-            value={email}
+            placeholder='Enter your shoppingCartNo'
+            name="shoppingCartNo"
+            value={shoppingCartNo}
             onChange={(e)=>onInputChange(e)}
             />
           </div>

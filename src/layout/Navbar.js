@@ -20,7 +20,7 @@ export default function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button> */}
           {/* path links to Route on App.js - this is a linked button */}
-          <Link className="btn btn-outline-light" to="/adduser">Add User</Link>
+          <Link className="btn btn-outline-light" to="/addorder">Add Order</Link>
 
         </div>
       </nav>

@@ -4,9 +4,9 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Navbar from './layout/Navbar';
 import Home from './pages/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AddUser from './pages/AddUser';
-import EditUser from './userss/EditUser';
-import ViewUser from './userss/ViewUser';
+import AddOrder from './pages/AddOrder';
+import EditOrder from './orders/EditOrder';
+import ViewOrder from './orders/ViewOrder';
 
 function App() {
   return (
@@ -15,9 +15,9 @@ function App() {
         <Navbar/>
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route exact path="/adduser" element={<AddUser />} />
-          <Route exact path="/edituser/:id" element={<EditUser/>}/>
-          <Route exact path="/viewuser/:id" element={<ViewUser />} />
+          <Route exact path="/addorder" element={<AddOrder />} />
+          <Route exact path="/editorder/:id" element={<EditOrder/>}/>
+          <Route exact path="/vieworder/:id" element={<ViewOrder />} />
         </Routes>
       </Router>
     </div>

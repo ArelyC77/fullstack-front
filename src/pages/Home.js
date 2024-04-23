@@ -7,49 +7,49 @@ import { Link, useParams } from 'react-router-dom';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 export default function Home() {
-    const [users, setUsers] = useState([]);
+    const [orders, setOrders] = useState([]);
     const [showModal, setShowModal] = useState(false);
-    const [userToDelete, setUserToDelete] = useState(null);
+    const [orderToDelete, setOrderToDelete] = useState(null);
 
     const { id } = useParams();
 
     useEffect(() => {
-        loadUsers();
+        loadOrders();
     }, []);
 
-    const loadUsers = async () => {
+    const loadOrders = async () => {
         try {
-            const result = await axios.get("http://localhost:8080/users");
-            setUsers(result.data);
+            const result = await axios.get("http://localhost:8080/orders");
+            setOrders(result.data);
         } catch (error) {
-            console.error("Error loading users:", error);
+            console.error("Error loading orders:", error);
         }
     };
 
-    const deleteUser = async (id) => {
+    const deleteOrder = async (id) => {
         try {
-            await axios.delete(`http://localhost:8080/user/${id}`);
-            loadUsers();
+            await axios.delete(`http://localhost:8080/orders/${id}`);
+            loadOrders();
         } catch (error) {
-            console.error("Error deleting user:", error);
+            console.error("Error deleting order:", error);
         }
     };
 
     const handleDeleteClick = (id) => {
-        setUserToDelete(id);
+        setOrderToDelete(id);
         setShowModal(true);
     };
 
     const handleConfirmDelete = () => {
-        if (userToDelete) {
-            deleteUser(userToDelete);
+        if (orderToDelete) {
+            deleteOrder(orderToDelete);
             setShowModal(false);
         }
     };
 
     const handleCancelDelete = () => {
         setShowModal(false);
-        setUserToDelete(null);
+        setOrderToDelete(null);
     };
 
     return (
@@ -59,36 +59,36 @@ export default function Home() {
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">Email</th>
+                            <th scope="col">Date Request Received</th>
+                            <th scope="col">Department</th>
+                            <th scope="col">Shopping Cart # </th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {users.map((user, index) => (
+                        {orders.map((order, index) => (
                             <tr key={index}>
                                 <th scope="row">{index + 1}</th>
-                                <td>{user.name}</td>
-                                <td>{user.username}</td>
-                                <td>{user.email}</td>
+                                <td>{order.department}</td>
+                                <td>{order.dateRequestReceived}</td>
+                                <td>{order.shoppingCartNo}</td>
                                 <td>
                                     {/* View */}
                                     <Link className='btn btn-primary mx-2'
-                                        to={`/viewuser/${user.id}`}>   
+                                        to={`/vieworder/${order.id}`}>   
                                         <i className="bi bi-eye"></i>
                                     </Link>
 
-                                    {/* Links take users to a new section while buttons trigger an action */}
+                                    {/* Links take orders to a new section while buttons trigger an action */}
                                     {/* Edit */}
                                     <Link className='btn btn-outline-primary mx-2'
-                                        to={`/edituser/${user.id}`}>
+                                        to={`/editorder/${order.id}`}>
                                         <i className="bi bi-pencil"></i>
                                     </Link>
 
                                     {/* Delete */}
                                     <button className='btn btn-danger mx-2'
-                                        onClick={() => handleDeleteClick(user.id)}>
+                                        onClick={() => handleDeleteClick(order.id)}>
                                         <i class="bi bi-trash"></i>
                                     </button>
                                 </td>
@@ -107,7 +107,7 @@ export default function Home() {
                                 <button type="button" className="btn-close" onClick={handleCancelDelete}></button>
                             </div>
                             <div className="modal-body">
-                                <p>Are you sure you want to delete this user?</p>
+                                <p>Are you sure you want to delete this order?</p>
                             </div>
                             <div className="modal-footer">
                             <div style={{ position: 'absolute', bottom: '8', left: '0', right:'80%'}}>
