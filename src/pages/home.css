@@ -1,6 +1,7 @@
 .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
     /* background-color:#5aadf578; */
-    background-color: rgba(3, 156, 251, 0.463);
+    /* background-color: rgba(3, 156, 251, 0.463); */
+    background-color: rgba(19, 164, 225, 0.463);
  }
 
  /* .table-bordered th,

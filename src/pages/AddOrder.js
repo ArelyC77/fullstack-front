@@ -10,11 +10,54 @@ export default function AddOrder() {
   const [order, setOrder]=useState({
     department:"",
     dateRequestReceived:"",
-    shoppingCartNo:""
+    shoppingCartNo:"",
+    poNo:"",//main table int
+    vendorName:"", //main table
+    requestorName:"", //main table
+    description:"", //main table
+    amount:"", //main table double
+    fundNo:"",//main table integer
+    //-----------------------------------------------------------
+    datePOCreated:"",
+    vendorNo:"",//integer
+    shipTo:"",//integer
+    objectNo:"",//integer
+    locationNo:"",//integer
+    programNo:"",//int
+    functionNo:"",//int
+    sapOrCreditCard:"",
+    dateApproved:"",
+   dateGottardiApproved:"",
+    processorName:"",
+    statusGoodReceipts:"",
+    invoiceStatus:""
   })
 
   //deconstruct useState
-  const{department,dateRequestReceived,shoppingCartNo}=order
+  const{
+    department,
+    dateRequestReceived,
+    shoppingCartNo,
+    poNo,
+    vendorName,
+    requestorName,
+    description,
+    amount,
+    fundNo,
+    datePOCreated,
+    vendorNo,
+    shipTo,
+    objectNo,
+    locationNo,
+    programNo,
+    functionNo,
+    sapOrCreditCard,
+    dateApproved,
+    dateGottardiApproved,
+    processorName,
+    statusGoodReceipts,
+    invoiceStatus
+    }=order
 
   //event change (refer to input variables)
   const onInputChange=(e)=>{

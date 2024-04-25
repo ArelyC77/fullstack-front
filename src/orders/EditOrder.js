@@ -13,11 +13,54 @@ export default function EditOrder() {
   const [order, setOrder]=useState({
     department:"",
     dateRequestReceived:"",
-    shoppingCartNo:""
+    shoppingCartNo:"",
+    poNo:"",//main table int
+    vendorName:"", //main table
+    requestorName:"", //main table
+    description:"", //main table
+    amount:"", //main table double
+    fundNo:"",//main table integer
+    //-----------------------------------------------------------
+    datePOCreated:"",
+    vendorNo:"",//integer
+    shipTo:"",//integer
+    objectNo:"",//integer
+    locationNo:"",//integer
+    programNo:"",//int
+    functionNo:"",//int
+    sapOrCreditCard:"",
+    dateApproved:"",
+    dateGottardiApproved:"",
+    processorName:"",
+    statusGoodReceipts:"",
+    invoiceStatus:""
   })
 
   //deconstruct useState
-  const{department,dateRequestReceived,shoppingCartNo}=order
+  const{
+    department,
+    dateRequestReceived,
+    shoppingCartNo,
+    poNo,
+    vendorName,
+    requestorName,
+    description,
+    amount,
+    fundNo,
+    datePOCreated,
+    vendorNo,
+    shipTo,
+    objectNo,
+    locationNo,
+    programNo,
+    functionNo,
+    sapOrCreditCard,
+    dateApproved,
+    dateGottardiApproved,
+    processorName,
+    statusGoodReceipts,
+    invoiceStatus
+    }=order
 
   //event change (refer to input variables)
   const onInputChange=(e)=>{
@@ -83,6 +126,215 @@ export default function EditOrder() {
             placeholder='Enter the shopping cart #...'
             name="shoppingCartNo"
             value={shoppingCartNo}
+            onChange={(e)=>onInputChange(e)}
+            />
+          </div>
+          <div className='mb-3'>
+            <label htmlFor='poNo' className='form-label'>P.O. #</label>
+            <input
+            type={"text"}
+            className='form-control'
+            placeholder='Enter the purchase order #...'
+            name="poNo"
+            value={poNo}
+            onChange={(e)=>onInputChange(e)}
+            />
+          </div>
+          <div className='mb-3'>
+            <label htmlFor='datePOCreated' className='form-label'>Date P.O Created</label>
+            <input
+            type={"text"}
+            className='form-control'
+            placeholder='Enter the date P.O was created...'
+            name="datePOCreated"
+            value={datePOCreated}
+            onChange={(e)=>onInputChange(e)}
+            />
+          </div>
+          <div className='mb-3'>
+            <label htmlFor='vendorNo' className='form-label'>Vendor #</label>
+            <input
+            type={"text"}
+            className='form-control'
+            placeholder='Enter the vendor #...'
+            name="vendorNo"
+            value={vendorNo}
+            onChange={(e)=>onInputChange(e)}
+            />
+          </div>
+          <div className='mb-3'>
+            <label htmlFor='vendorName' className='form-label'>Vendor Name</label>
+            <input
+            type={"text"}
+            className='form-control'
+            placeholder='Enter the vendor name...'
+            name="vendorName"
+            value={vendorName}
+            onChange={(e)=>onInputChange(e)}
+            />
+          </div>
+          <div className='mb-3'>
+            <label htmlFor='requestorName' className='form-label'>Requestor Name</label>
+            <input
+            type={"text"}
+            className='form-control'
+            placeholder='Enter the requestor name...'
+            name="requestorName"
+            value={requestorName}
+            onChange={(e)=>onInputChange(e)}
+            />
+          </div>
+          <div className='mb-3'>
+            <label htmlFor='shipTo' className='form-label'>Ship To</label>
+            <input
+            type={"text"}
+            className='form-control'
+            placeholder='Enter the location to ship to...'
+            name="shipTo"
+            value={shipTo}
+            onChange={(e)=>onInputChange(e)}
+            />
+          </div>
+          <div className='mb-3'>
+            <label htmlFor='description' className='form-label'>Description</label>
+            <input
+            type={"text"}
+            className='form-control'
+            placeholder='Enter the description...'
+            name="description"
+            value={description}
+            onChange={(e)=>onInputChange(e)}
+            />
+          </div>
+          <div className='mb-3'>
+            <label htmlFor='amount' className='form-label'>Amount </label>
+            <input
+            type={"text"}
+            className='form-control'
+            placeholder='Enter the amount...'
+            name="amount"
+            value={amount}
+            onChange={(e)=>onInputChange(e)}
+            />
+          </div>
+          <div className='mb-3'>
+            <label htmlFor='fundNo' className='form-label'>Fund # </label>
+            <input
+            type={"text"}
+            className='form-control'
+            placeholder='Enter the fund #...'
+            name="fundNo"
+            value={fundNo}
+            onChange={(e)=>onInputChange(e)}
+            />
+          </div>
+          <div className='mb-3'>
+            <label htmlFor='objectNo' className='form-label'>Object # </label>
+            <input
+            type={"text"}
+            className='form-control'
+            placeholder='Enter the object #...'
+            name="objectNo"
+            value={objectNo}
+            onChange={(e)=>onInputChange(e)}
+            />
+          </div>
+          <div className='mb-3'>
+            <label htmlFor='locationNo' className='form-label'>Location # </label>
+            <input
+            type={"text"}
+            className='form-control'
+            placeholder='Enter the location #...'
+            name="locationNo"
+            value={locationNo}
+            onChange={(e)=>onInputChange(e)}
+            />
+          </div>
+          <div className='mb-3'>
+            <label htmlFor='programNo' className='form-label'>Program # </label>
+            <input
+            type={"text"}
+            className='form-control'
+            placeholder='Enter the program #...'
+            name="programNo"
+            value={programNo}
+            onChange={(e)=>onInputChange(e)}
+            />
+          </div>
+          <div className='mb-3'>
+            <label htmlFor='functionNo' className='form-label'>Function # </label>
+            <input
+            type={"text"}
+            className='form-control'
+            placeholder='Enter the function #...'
+            name="functionNo"
+            value={functionNo}
+            onChange={(e)=>onInputChange(e)}
+            />
+          </div>
+          <div className='mb-3'>
+            <label htmlFor='sapOrCreditCard' className='form-label'>SAP or Credit Card </label>
+            <input
+            type={"text"}
+            className='form-control'
+            placeholder='Enter SAP or Credit Card...'
+            name="sapOrCreditCard"
+            value={sapOrCreditCard}
+            onChange={(e)=>onInputChange(e)}
+            />
+          </div>
+          <div className='mb-3'>
+            <label htmlFor='dateApproved' className='form-label'>Date Approved</label>
+            <input
+            type={"text"}
+            className='form-control'
+            placeholder='Enter the date Approved...'
+            name="dateApproved"
+            value={dateApproved}
+            onChange={(e)=>onInputChange(e)}
+            />
+          </div>
+          <div className='mb-3'>
+            <label htmlFor='dateGottardiApproved' className='form-label'>Date Approved by Gottardi</label>
+            <input
+            type={"text"}
+            className='form-control'
+            placeholder='Enter the date Gottardi approved...'
+            name="dateGottardiApproved"
+            value={dateGottardiApproved}
+            onChange={(e)=>onInputChange(e)}
+            />
+          </div>
+          <div className='mb-3'>
+            <label htmlFor='processorName' className='form-label'>Processor Name</label>
+            <input
+            type={"text"}
+            className='form-control'
+            placeholder='Enter the processor name ...'
+            name="processorName"
+            value={processorName}
+            onChange={(e)=>onInputChange(e)}
+            />
+          </div>
+          <div className='mb-3'>
+            <label htmlFor='statusGoodReceipts' className='form-label'>Status of Goods Receipt</label>
+            <input
+            type={"text"}
+            className='form-control'
+            placeholder='Enter the status of goods receipt...'
+            name="statusGoodReceipts"
+            value={statusGoodReceipts}
+            onChange={(e)=>onInputChange(e)}
+            />
+          </div>
+          <div className='mb-3'>
+            <label htmlFor='invoiceStatus' className='form-label'>Invoice Status</label>
+            <input
+            type={"text"}
+            className='form-control'
+            placeholder='Enter the status of invoice status...'
+            name="invoiceStatus"
+            value={invoiceStatus}
             onChange={(e)=>onInputChange(e)}
             />
           </div>

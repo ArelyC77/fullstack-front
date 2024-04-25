@@ -4,9 +4,29 @@ import axios from 'axios';
 
 export default function ViewOrder() {
     const [order, setOrder] = useState({
-        department: "",
-        dateRequestReceived: "",
-        shoppingCartNo: ""
+        department:"",
+    dateRequestReceived:"",
+    shoppingCartNo:"",
+    poNo:"",//main table int
+    vendorName:"", //main table
+    requestorName:"", //main table
+    description:"", //main table
+    amount:"", //main table double
+    fundNo:"",//main table integer
+    //-----------------------------------------------------------
+    datePOCreated:"",
+    vendorNo:"",//integer
+    shipTo:"",//integer
+    objectNo:"",//integer
+    locationNo:"",//integer
+    programNo:"",//int
+    functionNo:"",//int
+    sapOrCreditCard:"",
+    dateApproved:"",
+   dateGottardiApproved:"",
+    processorName:"",
+    statusGoodReceipts:"",
+    invoiceStatus:""
     });
 
     const { id } = useParams();

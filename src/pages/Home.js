@@ -62,16 +62,28 @@ export default function Home() {
                             <th scope="col">Date Request Received</th>
                             <th scope="col">Department</th>
                             <th scope="col">Shopping Cart # </th>
-                            <th scope="col">Action</th>
+                            <th scope='col'>P.O. #</th>
+                            <th scope='col'>Vendor</th>
+                            <th scope="col">Requestor</th>
+                            <th scope='col'>Description</th>
+                            <th scope='col'>Amount</th>
+                            <th scope='col'>Fund #</th>
+                            <th scope='col'>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {orders.map((order, index) => (
                             <tr key={index}>
                                 <th scope="row">{index + 1}</th>
-                                <td>{order.department}</td>
                                 <td>{order.dateRequestReceived}</td>
+                                <td>{order.department}</td>
                                 <td>{order.shoppingCartNo}</td>
+                                <td>{order.poNo}</td>
+                                <td>{order.vendorName}</td>
+                                <td>{order.requestorName}</td>
+                                <td>{order.description}</td>
+                                <td>{order.amount}</td>
+                                <td>{order.fundNo}</td>
                                 <td>
                                     {/* View */}
                                     <Link className='btn btn-primary mx-2'
