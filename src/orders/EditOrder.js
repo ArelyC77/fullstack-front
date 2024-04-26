@@ -91,13 +91,14 @@ export default function EditOrder() {
       <div className='col-md-6 offset-md-3 border rounded p-4 mt-2 shadow'>
         <h2 className='text-center m-4'>Edit Order</h2>
         <form onSubmit={(e)=>onSubmit(e)}>
-          {/* DEPARTMENT margin bottom 3 */}
-          <div className='mb-3'>
+        {/* DEPARTMENT margin bottom 3 */}
+        <div class="row">
+         <div className='mb-3' class="col">
             <label htmlFor='Department' className='form-label'>Department</label>
             <input
             type={"text"}
             className='form-control'
-            placeholder='Enter your department'
+            placeholder='Enter department name...'
             name="department"
             value={department}
             onChange={(e)=>onInputChange(e)} //called the onInputChange event with arrow function
@@ -105,20 +106,23 @@ export default function EditOrder() {
           </div> 
 
           {/* dateRequestReceived margin bottom 3 */}
-          <div className='mb-3'>
+          <div className='mb-3' class="col">
             <label htmlFor='dateRequestReceived' className='form-label'>Date Request Received</label>
             <input
             type={"text"}
             className='form-control'
-            placeholder='Enter the date request was received...'
+            placeholder='Enter the date...'
             name="dateRequestReceived"
             value={dateRequestReceived}
             onChange={(e)=>onInputChange(e)}
             />
           </div>
+          </div> {/*end of row*/}
 
           {/* shoppingCartNo margin bottom 3 */}
-          <div className='mb-3'>
+          <div class="row">
+          <div className='mb-3' class="col">
+            <br/>
             <label htmlFor='shoppingCartNo' className='form-label'>Shopping Cart #</label>
             <input
             type={"text"}
@@ -129,7 +133,8 @@ export default function EditOrder() {
             onChange={(e)=>onInputChange(e)}
             />
           </div>
-          <div className='mb-3'>
+          <div className='mb-3' class="col">
+          <br/>
             <label htmlFor='poNo' className='form-label'>P.O. #</label>
             <input
             type={"text"}
@@ -140,18 +145,23 @@ export default function EditOrder() {
             onChange={(e)=>onInputChange(e)}
             />
           </div>
-          <div className='mb-3'>
+          </div>{/*end of row*/}
+
+          <div class="row">
+          <div className='mb-3' class="col">
+            <br/>
             <label htmlFor='datePOCreated' className='form-label'>Date P.O Created</label>
             <input
             type={"text"}
             className='form-control'
-            placeholder='Enter the date P.O was created...'
+            placeholder='Enter the date...'
             name="datePOCreated"
             value={datePOCreated}
             onChange={(e)=>onInputChange(e)}
             />
           </div>
-          <div className='mb-3'>
+          <div className='mb-3' class="col">
+            <br/>
             <label htmlFor='vendorNo' className='form-label'>Vendor #</label>
             <input
             type={"text"}
@@ -162,7 +172,11 @@ export default function EditOrder() {
             onChange={(e)=>onInputChange(e)}
             />
           </div>
-          <div className='mb-3'>
+          </div>{/*end of row*/}
+
+          <div class="row">
+          <div className='mb-3' class="col">
+            <br/>
             <label htmlFor='vendorName' className='form-label'>Vendor Name</label>
             <input
             type={"text"}
@@ -173,7 +187,8 @@ export default function EditOrder() {
             onChange={(e)=>onInputChange(e)}
             />
           </div>
-          <div className='mb-3'>
+          <div className='mb-3' class="col">
+            <br/>
             <label htmlFor='requestorName' className='form-label'>Requestor Name</label>
             <input
             type={"text"}
@@ -184,18 +199,23 @@ export default function EditOrder() {
             onChange={(e)=>onInputChange(e)}
             />
           </div>
-          <div className='mb-3'>
+          </div> {/*end of row*/}
+
+          <div class="row">
+          <div className='mb-3' class="col">
+            <br/>
             <label htmlFor='shipTo' className='form-label'>Ship To</label>
             <input
             type={"text"}
             className='form-control'
-            placeholder='Enter the location to ship to...'
+            placeholder='Enter location to ship to...'
             name="shipTo"
             value={shipTo}
             onChange={(e)=>onInputChange(e)}
             />
           </div>
-          <div className='mb-3'>
+          <div className='mb-3' class="col">
+            <br/>
             <label htmlFor='description' className='form-label'>Description</label>
             <input
             type={"text"}
@@ -206,7 +226,11 @@ export default function EditOrder() {
             onChange={(e)=>onInputChange(e)}
             />
           </div>
-          <div className='mb-3'>
+          </div>{/*end of row*/}
+
+          <div class="row">
+          <div className='mb-3' class="col">
+            <br/>
             <label htmlFor='amount' className='form-label'>Amount </label>
             <input
             type={"text"}
@@ -217,7 +241,8 @@ export default function EditOrder() {
             onChange={(e)=>onInputChange(e)}
             />
           </div>
-          <div className='mb-3'>
+          <div className='mb-3' class="col">
+            <br/>
             <label htmlFor='fundNo' className='form-label'>Fund # </label>
             <input
             type={"text"}
@@ -228,7 +253,11 @@ export default function EditOrder() {
             onChange={(e)=>onInputChange(e)}
             />
           </div>
-          <div className='mb-3'>
+          </div>{/*end of row*/}
+
+          <div class="row">
+          <div className='mb-3' class="col">
+            <br/>
             <label htmlFor='objectNo' className='form-label'>Object # </label>
             <input
             type={"text"}
@@ -239,7 +268,8 @@ export default function EditOrder() {
             onChange={(e)=>onInputChange(e)}
             />
           </div>
-          <div className='mb-3'>
+          <div className='mb-3'class="col">
+            <br/>
             <label htmlFor='locationNo' className='form-label'>Location # </label>
             <input
             type={"text"}
@@ -250,7 +280,11 @@ export default function EditOrder() {
             onChange={(e)=>onInputChange(e)}
             />
           </div>
-          <div className='mb-3'>
+          </div>{/*end of row*/}
+
+          <div class="row">
+          <div className='mb-3' class="col">
+            <br/>
             <label htmlFor='programNo' className='form-label'>Program # </label>
             <input
             type={"text"}
@@ -261,7 +295,8 @@ export default function EditOrder() {
             onChange={(e)=>onInputChange(e)}
             />
           </div>
-          <div className='mb-3'>
+          <div className='mb-3' class="col">
+            <br/>
             <label htmlFor='functionNo' className='form-label'>Function # </label>
             <input
             type={"text"}
@@ -272,7 +307,11 @@ export default function EditOrder() {
             onChange={(e)=>onInputChange(e)}
             />
           </div>
-          <div className='mb-3'>
+          </div>{/*end of row*/}
+
+          <div class="row">
+          <div className='mb-3' class="col">
+            <br/>
             <label htmlFor='sapOrCreditCard' className='form-label'>SAP or Credit Card </label>
             <input
             type={"text"}
@@ -283,18 +322,23 @@ export default function EditOrder() {
             onChange={(e)=>onInputChange(e)}
             />
           </div>
-          <div className='mb-3'>
+          <div className='mb-3' class="col">
+            <br/>
             <label htmlFor='dateApproved' className='form-label'>Date Approved</label>
             <input
             type={"text"}
             className='form-control'
-            placeholder='Enter the date Approved...'
+            placeholder='Enter the date approved...'
             name="dateApproved"
             value={dateApproved}
             onChange={(e)=>onInputChange(e)}
             />
           </div>
-          <div className='mb-3'>
+          </div>{/*end of row*/}
+
+          <div class="row">
+          <div className='mb-3' class="col">
+            <br/>
             <label htmlFor='dateGottardiApproved' className='form-label'>Date Approved by Gottardi</label>
             <input
             type={"text"}
@@ -305,7 +349,8 @@ export default function EditOrder() {
             onChange={(e)=>onInputChange(e)}
             />
           </div>
-          <div className='mb-3'>
+          <div className='mb-3' class="col">
+            <br/>
             <label htmlFor='processorName' className='form-label'>Processor Name</label>
             <input
             type={"text"}
@@ -316,7 +361,11 @@ export default function EditOrder() {
             onChange={(e)=>onInputChange(e)}
             />
           </div>
-          <div className='mb-3'>
+          </div>{/*end of row*/}
+
+          <div class="row">
+          <div className='mb-3' class="col">
+            <br/>
             <label htmlFor='statusGoodReceipts' className='form-label'>Status of Goods Receipt</label>
             <input
             type={"text"}
@@ -327,7 +376,8 @@ export default function EditOrder() {
             onChange={(e)=>onInputChange(e)}
             />
           </div>
-          <div className='mb-3'>
+          <div className='mb-3' class="col">
+            <br/>
             <label htmlFor='invoiceStatus' className='form-label'>Invoice Status</label>
             <input
             type={"text"}
@@ -338,7 +388,8 @@ export default function EditOrder() {
             onChange={(e)=>onInputChange(e)}
             />
           </div>
-
+          </div>{/*end of row*/}
+          <br/> <br/>
           <button type="submit" className='btn btn-outline-primary'>Submit</button>
           <Link  className='btn btn-outline-danger mx-2' to="/">Cancel</Link>
         </form>
