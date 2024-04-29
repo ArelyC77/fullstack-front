@@ -78,7 +78,7 @@ export default function AddOrder() {
   <div className='container'>
     <div className='row'>
       <div className='col-md-6 offset-md-3 border rounded p-4 mt-2 shadow'>
-        <h2 className='text-center m-4'>Register Order</h2>
+        <h2 className='text-center m-4'>New Order</h2>
         <form onSubmit={(e)=>onSubmit(e)}>
          {/* DEPARTMENT margin bottom 3 */}
          <div class="row">
@@ -194,7 +194,7 @@ export default function AddOrder() {
           <div className='mb-3' class="col">
             <br/>
             <label htmlFor='shipTo' className='form-label'>Ship To</label>
-            <input
+            <textarea
             type={"text"}
             className='form-control'
             placeholder='Enter location to ship to...'
@@ -204,33 +204,32 @@ export default function AddOrder() {
             />
           </div>
 
-          <div className='input-group mb-3 ' class="col">
+          <div className='mb-3 ' class=" col">
             <br/>
-            <label htmlFor='description' className='form-label'>Description</label>
-            <text-area
+            <label htmlFor="description" className='form-label'>Description</label>
+            <textarea 
             type={"text"}
             class='form-control'
             placeholder='Enter the description...'
             name="description"
             value={description}
             onChange={(e)=>onInputChange(e)}
-            ></text-area>
+            />
           </div>
-
           </div>{/*end of row*/}
 
           <div class="row">
           <div className='mb-3' class="col">
             <br/>
             <label htmlFor='amount' className='form-label'>Amount </label>
-            <input
-            type={"text"}
-            className='form-control'
-            placeholder='Enter the amount...'
-            name="amount"
-            value={amount}
-            onChange={(e)=>onInputChange(e)}
-            />
+              <input
+              type={"text"}
+              className='form-control'
+              placeholder='Enter the amount...'
+              name="amount"
+              value={amount}
+              onChange={(e)=>onInputChange(e)}
+              />
           </div>
           <div className='mb-3' class="col">
             <br/>

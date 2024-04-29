@@ -86,13 +86,13 @@ export default function EditOrder() {
   }
 
   return (
-  <div className='container'>
+    <div className='container'>
     <div className='row'>
       <div className='col-md-6 offset-md-3 border rounded p-4 mt-2 shadow'>
-        <h2 className='text-center m-4'>Edit Order</h2>
+        <h2 className='text-center m-4'> Order</h2>
         <form onSubmit={(e)=>onSubmit(e)}>
-        {/* DEPARTMENT margin bottom 3 */}
-        <div class="row">
+         {/* DEPARTMENT margin bottom 3 */}
+         <div class="row">
          <div className='mb-3' class="col">
             <label htmlFor='Department' className='form-label'>Department</label>
             <input
@@ -205,7 +205,7 @@ export default function EditOrder() {
           <div className='mb-3' class="col">
             <br/>
             <label htmlFor='shipTo' className='form-label'>Ship To</label>
-            <input
+            <textarea
             type={"text"}
             className='form-control'
             placeholder='Enter location to ship to...'
@@ -214,12 +214,13 @@ export default function EditOrder() {
             onChange={(e)=>onInputChange(e)}
             />
           </div>
-          <div className='mb-3' class="col">
+
+          <div className='mb-3 ' class=" col">
             <br/>
-            <label htmlFor='description' className='form-label'>Description</label>
-            <input
+            <label htmlFor="description" className='form-label'>Description</label>
+            <textarea 
             type={"text"}
-            className='form-control'
+            class='form-control'
             placeholder='Enter the description...'
             name="description"
             value={description}
@@ -232,14 +233,14 @@ export default function EditOrder() {
           <div className='mb-3' class="col">
             <br/>
             <label htmlFor='amount' className='form-label'>Amount </label>
-            <input
-            type={"text"}
-            className='form-control'
-            placeholder='Enter the amount...'
-            name="amount"
-            value={amount}
-            onChange={(e)=>onInputChange(e)}
-            />
+              <input
+              type={"text"}
+              className='form-control'
+              placeholder='Enter the amount...'
+              name="amount"
+              value={amount}
+              onChange={(e)=>onInputChange(e)}
+              />
           </div>
           <div className='mb-3' class="col">
             <br/>

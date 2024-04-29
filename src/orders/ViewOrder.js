@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export default function ViewOrder() {
     const [order, setOrder] = useState({
-        department:"",
+    department:"",
     dateRequestReceived:"",
     shoppingCartNo:"",
     poNo:"",//main table int
@@ -23,7 +23,7 @@ export default function ViewOrder() {
     functionNo:"",//int
     sapOrCreditCard:"",
     dateApproved:"",
-   dateGottardiApproved:"",
+    dateGottardiApproved:"",
     processorName:"",
     statusGoodReceipts:"",
     invoiceStatus:""
@@ -53,7 +53,7 @@ export default function ViewOrder() {
                         <div className="card-header">
                             Details of order id : {id}
                         </div>
-                        <ul className='list-group list-group-flush'>
+                        <ul className='list-group list-group-flush' align="left">
                             <li className="list-group-item">
                                 <b>Department: </b>
                                 {order.department}
@@ -66,8 +66,85 @@ export default function ViewOrder() {
                                 <b>Shopping Cart #: </b>
                                 {order.shoppingCartNo}
                             </li>
+                            <li className="list-group-item">
+                                <b>P.O #: </b>
+                                {order.poNo}
+                            </li>
+                            <li className="list-group-item">
+                                <b>Vendor Name: </b>
+                                {order.vendorName}
+                            </li>
+                            <li className='list-group-item'>
+                                <b>Requestor Name: </b>
+                                {order.requestorName}
+                            </li>
+                            <li className='list-group-item'>
+                                <b>Description: </b>
+                                {order.description}
+                            </li>
+                            <li className='list-group-item'>
+                                <b>Amount: </b>
+                                {order.amount}
+                            </li>
+                            <li className='list-group-item'>
+                                <b>Fund #: </b>
+                                {order.fundNo}
+                            </li>
+                            <li className='list-group-item'>
+                                <b>Date P.O. Created: </b>
+                                {order.datePOCreated}
+                            </li>
+                            <li className='list-group-item'>
+                                <b>Vendor #: </b>
+                                {order.vendorNo}
+                            </li>
+                         <li className='list-group-item'>
+                            <b>Ship To: </b>
+                            {order.shipTo}
+                         </li>
+                         <li className='list-group-item'>
+                            <b>Object #: </b>
+                            {order.objectNo}
+                         </li>
+                         <li className='list-group-item'>
+                            <b>Location #: </b>
+                            {order.locationNo}
+                         </li>
+                         <li className="list-group-item">
+                            <b>Program #: </b>
+                            {order.programNo}
+                         </li>
+                         <li className='list-group-item'>
+                            <b>Function #: </b>
+                            {order.functionNo}
+                         </li>
+                        <li className='list-group-item'>
+                            <b>Sap or Credit Card: </b>
+                            {order.sapOrCreditCard}
+                        </li>
+                        <li className='list-group-item'>
+                            <b>Date Approved: </b>
+                            {order.dateApproved}
+                        </li>
+                        <li className='list-group-item'>
+                            <b>Date Gottardi Approved: </b>
+                            {order.dateGottardiApproved}
+                        </li>
+                        <li className='list-group-item' >
+                            <b>Processor Name: </b>
+                            {order.processorName}
+                        </li>
+                        <li className='list-group-item'>
+                            <b>Status of Good Receipts: </b>
+                            {order.statusGoodReceipts}
+                        </li>
+                        <li className='list-group-item'>
+                            <b>Invoice Status: </b>
+                            {order.invoiceStatus}
+                        </li>
                         </ul>
                     </div>
+                    <br/>
                     <Link className='btn btn-primary my-2' to={"/"}>
                         Back to Home
                     </Link>
