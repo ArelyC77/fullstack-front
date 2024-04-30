@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './home.css';
 import { Link, useParams } from 'react-router-dom';
-
+import 'bootstrap/dist/css/bootstrap.min.css'
 // Import Bootstrap Icons CSS directly
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
@@ -10,8 +10,13 @@ export default function Home() {
     const [orders, setOrders] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [orderToDelete, setOrderToDelete] = useState(null);
+    const [search, setSearch] = useState('');
 
     const { id } = useParams();
+
+    const onInputChange=(e)=>{
+        setSearch(e.target.value)
+      };
 
     useEffect(() => {
         loadOrders();
@@ -55,6 +60,14 @@ export default function Home() {
     return (
         <div className='container'>
             <div className='py-4'>
+            <input
+                type={"text"}
+                className='form-control'
+                placeholder='Search table...'
+                name="search"
+                onChange={(e)=>onInputChange(e)} //called the onInputChange event with arrow function
+            />
+            <br/>
                 <table className="table table-hover table-bordered table-striped shadow">
                     <thead>
                         <tr>
@@ -72,7 +85,32 @@ export default function Home() {
                         </tr>
                     </thead>
                     <tbody>
-                        {orders.map((order, index) => (
+            {orders.filter(index => {
+            const searchLowerCase = search.toLowerCase();
+            return (
+                index.department.toLowerCase().includes(searchLowerCase) ||
+                String(index.dateRequestReceived).includes(searchLowerCase) ||
+                String(index.shoppingCartNo).includes(searchLowerCase) ||
+                String(index.poNo).includes(searchLowerCase) ||
+                index.vendorName.toLowerCase().includes(searchLowerCase) ||
+                index.requestorName.toLowerCase().includes(searchLowerCase) ||
+                index.description.toLowerCase().includes(searchLowerCase) ||
+                String(index.amount).includes(searchLowerCase) ||
+                String(index.fundNo).includes(searchLowerCase) ||
+                String(index.datePOCreated).includes(searchLowerCase) ||
+                String(index.vendorNo).includes(searchLowerCase) ||
+                index.shipTo.toLowerCase().includes(searchLowerCase) ||
+                String(index.objectNo).includes(searchLowerCase) ||
+                String(index.locationNo).includes(searchLowerCase) ||
+                String(index.programNo).includes(searchLowerCase) ||
+                String(index.functionNo).includes(searchLowerCase) ||
+                index.sapOrCreditCard.toLowerCase().includes(searchLowerCase) ||
+                String(index.dateApproved).includes(searchLowerCase) ||
+                String(index.dateGottardiApproved).includes(searchLowerCase) ||
+                index.processorName.toLowerCase().includes(searchLowerCase) ||
+                index.statusGoodReceipts.toLowerCase().includes(searchLowerCase) ||
+                index.invoiceStatus.toLowerCase().includes(searchLowerCase)
+            );}).map((order, index) => (
                             <tr key={index}>
                                 <th scope="row">{index + 1}</th>
                                 <td>{order.dateRequestReceived}</td>
