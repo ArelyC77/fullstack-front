@@ -8,6 +8,8 @@ export default function EditOrder() {
   //react router dom useNavigate
   let navigate = useNavigate()
 
+  //used to create and access multiple parameters of a website
+  //enables each parameter to have a unique id
   const {id}=useParams()
 
   const [order, setOrder]=useState({

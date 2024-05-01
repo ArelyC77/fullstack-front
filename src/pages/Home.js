@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './home.css';
+import './scrollToTopButton.css';
 import { Link, useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 // Import Bootstrap Icons CSS directly
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 export default function Home() {
+    //useState lets
     const [orders, setOrders] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [orderToDelete, setOrderToDelete] = useState(null);
@@ -18,6 +20,7 @@ export default function Home() {
         setSearch(e.target.value)
       };
 
+      // => is an updater function
     useEffect(() => {
         loadOrders();
     }, []);
@@ -57,6 +60,42 @@ export default function Home() {
         setOrderToDelete(null);
     };
 
+    const backToTop = () => {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    };
+
+    useEffect(() => {
+        let mybutton = document.getElementById("btn-back-to-top");
+        const scrollFunction = () => {
+            if (mybutton) {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    mybutton.style.display = "block";
+                } else {
+                    mybutton.style.display = "none";
+                }
+            }
+        };
+    
+        const backToTop = () => {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        };
+    
+        if (mybutton) {
+            window.addEventListener("scroll", scrollFunction);
+            mybutton.addEventListener("click", backToTop);
+        }
+    
+        // Clean up event listeners when the component is unmounted
+        return () => {
+            window.removeEventListener("scroll", scrollFunction);
+            if (mybutton) {
+                mybutton.removeEventListener("click", backToTop);
+            }
+        };
+    }, []);
+   
     return (
         <div className='container'>
             <div className='py-4'>
@@ -68,6 +107,7 @@ export default function Home() {
                 onChange={(e)=>onInputChange(e)} //called the onInputChange event with arrow function
             />
             <br/>
+            
                 <table className="table table-hover table-bordered table-striped shadow">
                     <thead>
                         <tr>
@@ -85,6 +125,7 @@ export default function Home() {
                         </tr>
                     </thead>
                     <tbody>
+                    {/* SEARCH MECHANISMS */}
             {orders.filter(index => {
             const searchLowerCase = search.toLowerCase();
             return (
@@ -111,6 +152,7 @@ export default function Home() {
                 index.statusGoodReceipts.toLowerCase().includes(searchLowerCase) ||
                 index.invoiceStatus.toLowerCase().includes(searchLowerCase)
             );}).map((order, index) => (
+                
                             <tr key={index}>
                                 <th scope="row">{index + 1}</th>
                                 <td>{order.dateRequestReceived}</td>
@@ -172,6 +214,17 @@ export default function Home() {
                 </div>
             )}
             {showModal && <div className="modal-backdrop fade show"></div>}
+
+            <button
+            type="button"
+            className="btn btn-primary btn-floating btn-sm"
+            id="btn-back-to-top"
+            onClick={backToTop}
+            >
+            <i class="bi bi-arrow-up"></i>
+            </button>
+            
         </div>
+        
     );
 }

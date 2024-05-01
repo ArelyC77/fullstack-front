@@ -27,7 +27,7 @@ export default function AddOrder() {
     functionNo:"",//int
     sapOrCreditCard:"",
     dateApproved:"",
-   dateGottardiApproved:"",
+    dateGottardiApproved:"",
     processorName:"",
     statusGoodReceipts:"",
     invoiceStatus:""
@@ -66,8 +66,10 @@ export default function AddOrder() {
   };
 
   const onSubmit= async (e)=>{
+    //this prevents a submit button from submitting a form
     e.preventDefault();
     //axios will post the information using backend post
+    //await is for waiting the for the promise to be fulfilled
     await axios.post("http://localhost:8080/orders",order)
     //this will navigate to the homepage when submitted
     navigate("/")

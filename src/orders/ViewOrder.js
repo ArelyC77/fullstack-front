@@ -31,6 +31,8 @@ export default function ViewOrder() {
 
     const { id } = useParams();
 
+    //updates the dom and is called everytime any state
+    //of the dependency array is modifiedor updated
     useEffect(() => {
         loadOrder();
     }, []);
