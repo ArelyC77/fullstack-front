@@ -70,7 +70,7 @@ export default function AddOrder() {
     e.preventDefault();
     //axios will post the information using backend post
     //await is for waiting the for the promise to be fulfilled
-    await axios.post("http://localhost:8080/orders",order)
+    await axios.post("http://localhost:8081/orders",order)
     //this will navigate to the homepage when submitted
     navigate("/")
   };
